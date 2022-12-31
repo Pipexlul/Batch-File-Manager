@@ -3,14 +3,14 @@ package main
 import (
 	"fmt"
 
-	"github.com/Pipexlul/batch-file-manager/translation_data"
+	td "github.com/Pipexlul/batch-file-manager/translation_data"
 )
 
 func main() {
 	fmt.Println("Testing translation data.")
 
 	// Test English
-	translated, err := translation_data.GetTranslatedString("en", "hello")
+	translated, err := td.GetTranslatedString("en", "hello")
 	if err != nil {
 		fmt.Println(err)
 	} else {
@@ -18,7 +18,7 @@ func main() {
 	}
 
 	// Test Spanish
-	translated, err = translation_data.GetTranslatedString("es", "hello")
+	translated, err = td.GetTranslatedString("es", "hello")
 	if err != nil {
 		fmt.Println(err)
 	} else {
