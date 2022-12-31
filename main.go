@@ -24,4 +24,20 @@ func main() {
 	} else {
 		fmt.Println(translated)
 	}
+
+	// Test non-existent language
+	translated, err = td.GetTranslatedString("fr", "hello")
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(translated)
+	}
+
+	// Test non-existent text
+	translated, err = td.GetTranslatedString("en", "goodbye")
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(translated)
+	}
 }
