@@ -2,13 +2,29 @@ package translation_data
 
 import "fmt"
 
-var data = map[string]map[string]string{
+var staticData = map[string]map[string]string{
 	"en": {
-		"hello": "Hello",
+		"hello":      "Hello",
+		"langChosen": "Language chosen: English",
 	},
 	"es": {
-		"hello": "Hola",
+		"hello":      "Hola",
+		"langChosen": "Idioma elegido: Español",
 	},
+}
+
+var data map[string]map[string]string
+
+func init() {
+	data = make(map[string]map[string]string)
+
+	for lang, text := range staticData {
+		data[lang] = make(map[string]string)
+		for key, value := range text {
+			data[lang][key] = value
+		}
+	}
+	// TODO: Add command data
 }
 
 func GetTranslatedString(lang, text string) (string, error) {
