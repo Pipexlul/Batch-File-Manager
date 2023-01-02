@@ -53,7 +53,7 @@ func allRequiredArgsPresent(parsedArgs map[string]string, cmdArgs []argData) (bo
 	return len(missingArgs) == 0, missingArgs
 }
 
-func getBaseCommandOrAliasValue(parsedArgs map[string]string, argToCheck argData) (string, error) {
+func getBaseCommandOrAliasValue(parsedArgs map[string]string, argToCheck *argData) (string, error) {
 	if res, found := parsedArgs[argToCheck.name]; found {
 		return res, nil
 	}
@@ -77,7 +77,9 @@ func findCmdDataFromCmdName(cmdName string) (*command, error) {
 	return nil, fmt.Errorf("Couldn't find any command of base name: %s", cmdName)
 }
 
-func findArgDataFromArgName(cmd *command, argName string) (*command, error)
+func findArgDataFromArgName(cmd *command, argName string) (*argData, error) {
+
+}
 
 func init() {
 	copyAllCmd := command{
