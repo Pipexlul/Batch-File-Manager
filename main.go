@@ -1,9 +1,12 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 	"strings"
 
+	cmdd "github.com/Pipexlul/batch-file-manager/command_data"
 	td "github.com/Pipexlul/batch-file-manager/translation_data"
 )
 
@@ -49,5 +52,36 @@ func main() {
 		fmt.Println(err)
 	} else {
 		fmt.Println(translatedToken)
+	}
+
+	fmt.Println("Enter a command anr it's arguments if necessary. To get a list of all commands use the command help.")
+	fmt.Println("If you want detailed information about a single command you can do as follows:")
+	fmt.Println("help -command copyAll")
+	fmt.Println("If you'd like to exit the program, just type exit")
+
+	reader := bufio.NewReader(os.Stdin)
+
+	for {
+		userInput, err := reader.ReadString('\n')
+
+		if err != nil {
+			fmt.Println(err)
+			continue
+		}
+
+		userInput = strings.TrimRight(userInput, "\n")
+		userInput = strings.TrimRight(userInput, "\r")
+
+		if userInput == "exit" {
+			os.Exit(0)
+		}
+
+		executeErr := cmdd.TryExecuteCommand(userInput)
+
+		if executeErr != nil {
+			fmt.Printf("[Error]: %v", executeErr)
+		} else {
+			fmt.Println("Command succesfully executed!")
+		}
 	}
 }

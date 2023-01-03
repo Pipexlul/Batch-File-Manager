@@ -22,5 +22,5 @@ func ParseInput(input string) map[string]string {
 			}
 		}
 	}
-
+	return args
 }
