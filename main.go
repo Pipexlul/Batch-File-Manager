@@ -54,7 +54,7 @@ func main() {
 		fmt.Println(translatedToken)
 	}
 
-	fmt.Println("Enter a command anr it's arguments if necessary. To get a list of all commands use the command help.")
+	fmt.Println("Enter a command and it's arguments if necessary. To get a list of all commands use the command help.")
 	fmt.Println("If you want detailed information about a single command you can do as follows:")
 	fmt.Println("help -command copyAll")
 	fmt.Println("If you'd like to exit the program, just type exit")
