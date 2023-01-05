@@ -79,9 +79,7 @@ func main() {
 		executeErr := cmdd.TryExecuteCommand(userInput)
 
 		if executeErr != nil {
-			fmt.Printf("[Error]: %v", executeErr)
-		} else {
-			fmt.Println("Command succesfully executed!")
+			fmt.Printf("[Error]: %v\n", executeErr)
 		}
 	}
 }
